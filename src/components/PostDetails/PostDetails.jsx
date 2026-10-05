@@ -1,6 +1,24 @@
 import "./PostDetails.css";
 
 function PostDetails({ post, onBack }) {
+  const comments = [
+    {
+      id: 1,
+      author: "community_member",
+      text: "Interesting post. Thanks for sharing this!",
+    },
+    {
+      id: 2,
+      author: "another_user",
+      text: "I agree with this. Would be interested to hear what others think.",
+    },
+    {
+      id: 3,
+      author: "reddit_reader",
+      text: "This is a really good discussion topic.",
+    },
+  ];
+
   return (
     <article className="post-details">
       <button type="button" className="post-details__back" onClick={onBack}>
@@ -24,6 +42,22 @@ function PostDetails({ post, onBack }) {
           <span>▲ {post.score} votes</span>
           <span>💬 {post.num_comments} comments</span>
         </div>
+
+        <section className="post-details__comments">
+          <h2>Comments</h2>
+
+          <div className="post-details__comment-list">
+            {comments.map((comment) => (
+              <article className="post-details__comment" key={comment.id}>
+                <p className="post-details__comment-author">
+                  u/{comment.author}
+                </p>
+
+                <p className="post-details__comment-text">{comment.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
     </article>
   );
