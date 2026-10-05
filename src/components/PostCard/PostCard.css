@@ -74,3 +74,71 @@
   font-size: 0.85rem;
   font-weight: 600;
 }
+
+.post-card__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.post-card__votes {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #703b30;
+  font-weight: 700;
+}
+
+.post-card__vote {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: #f7c4b5;
+  color: #703b30;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.post-card__vote:hover {
+  background: #efaa98;
+  transform: translateY(-1px);
+}
+
+.post-card__vote:focus-visible {
+  outline: 3px solid rgba(25, 167, 160, 0.35);
+  outline-offset: 2px;
+}
+
+.post-card__vote--upvoted {
+  background: #19a7a0;
+  color: #ffffff;
+}
+
+.post-card__vote--downvoted {
+  background: #703b30;
+  color: #ffffff;
+}
+
+.post-card__vote--upvoted:hover {
+  background: #148b85;
+}
+
+.post-card__vote--downvoted:hover {
+  background: #5a3028;
+}
+
+.post-card__comments {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
