@@ -1,6 +1,6 @@
 import "./PostCard.css";
 
-function PostCard() {
+function PostCard({ title, subreddit, author, votes, comments }) {
   return (
     <article className="post-card">
       <div className="post-card__image">
@@ -8,17 +8,15 @@ function PostCard() {
       </div>
 
       <div className="post-card__content">
-        <h3 className="post-card__title">
-          This is an example Reddit post title
-        </h3>
+        <h3 className="post-card__title">{title}</h3>
 
         <p className="post-card__meta">
-          r/technology · u/username · 2 hours ago
+          r/{subreddit} · u/{author}
         </p>
 
         <div className="post-card__stats">
-          <span>▲ 1,234 votes</span>
-          <span>💬 245 comments</span>
+          <span>▲ {votes} votes</span>
+          <span>💬 {comments} comments</span>
         </div>
       </div>
     </article>
