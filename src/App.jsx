@@ -7,6 +7,8 @@ import Search from "./components/Search/Search";
 import PostDetails from "./components/PostDetails/PostDetails";
 import { fetchRedditPosts } from "./redux/postsSlice";
 import "./App.css";
+import Footer from "./components/Footer/Footer";
+
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -181,6 +183,7 @@ function App() {
           </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }
