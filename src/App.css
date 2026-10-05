@@ -76,3 +76,21 @@
     font-size: 1.35rem;
   }
 }
+
+.content__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.content__heading h2 {
+  margin: 0;
+}
+
+.content__count {
+  color: #148b85;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
