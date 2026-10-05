@@ -134,3 +134,48 @@
 .post-details__share:hover {
   background: #148b85;
 }
+
+@media (max-width: 640px) {
+  .post-details {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .post-details__back {
+    margin-bottom: 20px;
+  }
+
+  .post-details__image {
+    min-height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .post-details__title {
+    font-size: 1.7rem;
+  }
+
+  .post-details__text {
+    font-size: 1rem;
+  }
+
+  .post-details__stats {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .post-details__stats span,
+  .post-details__share {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .post-details__comments {
+    margin-top: 28px;
+    padding-top: 22px;
+  }
+
+  .post-details__comment {
+    padding: 14px;
+  }
+}

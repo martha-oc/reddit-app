@@ -34,6 +34,7 @@
   background: #e9f5f3;
   color: #148b85;
   font-weight: 600;
+  overflow: hidden;
 }
 
 .post-card__content {
@@ -142,3 +143,22 @@
   font-weight: 600;
 }
 
+@media (max-width: 640px) {
+  .post-card__content {
+    padding: 16px;
+  }
+
+  .post-card__title {
+    font-size: 1.1rem;
+  }
+
+  .post-card__actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .post-card__comments {
+    font-size: 0.85rem;
+  }
+}
