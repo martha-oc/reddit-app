@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 
-function Sidebar() {
+function Sidebar({ selectedCategory, onCategoryChange }) {
   const categories = ["Popular", "News", "Gaming", "Technology", "Sports"];
 
   return (
@@ -9,13 +9,14 @@ function Sidebar() {
 
       <nav aria-label="Post categories">
         <ul className="sidebar__list">
-          {categories.map((category, index) => (
+          {categories.map((category) => (
             <li key={category}>
               <button
                 type="button"
                 className={`sidebar__item ${
-                  index === 0 ? "sidebar__item--active" : ""
+                  selectedCategory === category ? "sidebar__item--active" : ""
                 }`}
+                onClick={() => onCategoryChange(category)}
               >
                 {category}
               </button>

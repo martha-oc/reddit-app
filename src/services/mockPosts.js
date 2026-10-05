@@ -59,6 +59,66 @@ const mockPosts = [
     thumbnail: null,
     url: "https://example.com",
   },
+  {
+    id: "post-6",
+    title: "The biggest stories everyone is talking about today",
+    subreddit: "news",
+    author: "dailynews",
+    score: 1102,
+    num_comments: 156,
+    selftext:
+      "A roundup of current events and important stories generating discussion today.",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-7",
+    title: "What games are you playing this weekend?",
+    subreddit: "gaming",
+    author: "gamer42",
+    score: 934,
+    num_comments: 128,
+    selftext:
+      "A community discussion about favourite games, new releases and weekend gaming plans.",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-8",
+    title: "Your favourite sports moment of the year",
+    subreddit: "sports",
+    author: "sportsfan",
+    score: 785,
+    num_comments: 89,
+    selftext:
+      "Share the sporting moments that have stood out to you this year.",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-9",
+    title: "The latest developments in consumer technology",
+    subreddit: "technology",
+    author: "techreader",
+    score: 713,
+    num_comments: 74,
+    selftext:
+      "A discussion about new devices, software and trends in consumer technology.",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-10",
+    title: "Which game deserves more attention?",
+    subreddit: "gaming",
+    author: "indiegamer",
+    score: 598,
+    num_comments: 61,
+    selftext:
+      "A discussion about underrated games that deserve a bigger audience.",
+    thumbnail: null,
+    url: "https://example.com",
+  },
 ];
 
 export default mockPosts;
