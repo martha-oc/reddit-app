@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header";
+import PostCard from "./components/PostCard/PostCard";
 import Sidebar from "./components/Sidebar/Sidebar";
 import "./App.css";
 
@@ -12,7 +13,11 @@ function App() {
 
         <section className="content">
           <h2>Popular Posts</h2>
-          <p>Our Reddit posts will appear here.</p>
+
+          <div className="post-list">
+            <PostCard />
+            <PostCard />
+          </div>
         </section>
       </main>
     </div>

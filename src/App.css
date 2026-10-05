@@ -17,3 +17,9 @@
 .content h2 {
   margin-top: 0;
 }
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

@@ -1,0 +1,45 @@
+.post-card {
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 12%);
+}
+
+.post-card__image {
+  display: flex;
+  min-height: 280px;
+  align-items: center;
+  justify-content: center;
+  background-color: #e8e8e8;
+  color: #666;
+}
+
+.post-card__content {
+  padding: 1.25rem;
+}
+
+.post-card__title {
+  margin: 0 0 0.75rem;
+  color: #222;
+  font-size: 1.25rem;
+}
+
+.post-card__meta {
+  margin: 0 0 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.post-card__stats {
+  display: flex;
+  gap: 1.5rem;
+  color: #20b2aa;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
