@@ -1,15 +1,36 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./components/Header/Header";
 import PostCard from "./components/PostCard/PostCard";
 import Sidebar from "./components/Sidebar/Sidebar";
+import Search from "./components/Search/Search";
 import { fetchRedditPosts } from "./redux/postsSlice";
 import "./App.css";
 
 function App() {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
+
   const dispatch = useDispatch();
 
   const { posts, status, error } = useSelector((state) => state.posts);
+
+  const filteredPosts = posts.filter((post) => {
+    const search = searchTerm.toLowerCase().trim();
+
+    if (!search) {
+      return true;
+    }
+
+    return (
+      post.title.toLowerCase().includes(search) ||
+      post.subreddit.toLowerCase().includes(search) ||
+      post.author.toLowerCase().includes(search)
+    );
+  });
 
   useEffect(() => {
     if (status === "idle") {
@@ -22,6 +43,8 @@ function App() {
       <Header />
 
       <main className="main">
+        <Search onSearch={handleSearch} />
+
         <Sidebar />
 
         <section className="content">
@@ -35,16 +58,20 @@ function App() {
 
           {status === "succeeded" && (
             <div className="post-list">
-              {posts.map((post) => (
-                <PostCard
-                  key={post.id}
-                  title={post.title}
-                  subreddit={post.subreddit}
-                  author={post.author}
-                  votes={post.score}
-                  comments={post.num_comments}
-                />
-              ))}
+              {filteredPosts.length > 0 ? (
+                filteredPosts.map((post) => (
+                  <PostCard
+                    key={post.id}
+                    title={post.title}
+                    subreddit={post.subreddit}
+                    author={post.author}
+                    votes={post.score}
+                    comments={post.num_comments}
+                  />
+                ))
+              ) : (
+                <p>No posts found matching "{searchTerm}".</p>
+              )}
             </div>
           )}
         </section>
