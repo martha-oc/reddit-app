@@ -69,7 +69,16 @@ function App() {
             />
 
             <section className="content">
-              <h2>{selectedCategory} Posts</h2>
+              <div className="content__heading">
+                <h2>{selectedCategory} Posts</h2>
+
+                {status === "succeeded" && (
+                  <span className="content__count">
+                    {filteredPosts.length}{" "}
+                    {filteredPosts.length === 1 ? "post" : "posts"}
+                  </span>
+                )}
+              </div>
 
               {status === "loading" && <p>Loading Reddit posts...</p>}
 

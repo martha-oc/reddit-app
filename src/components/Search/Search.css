@@ -1,54 +1,96 @@
 .search {
-  display: flex;
-  gap: 0.75rem;
   width: 100%;
-  max-width: 700px;
-  margin: 0 auto 2rem;
 }
 
-.search input {
+.search__label {
+  display: block;
+  margin-bottom: 8px;
+  color: #2f2f2f;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.search__controls {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.search__controls input {
   flex: 1;
   min-width: 0;
-  padding: 0.85rem 1rem;
-  border: 2px solid #40e0d0;
-  border-radius: 8px;
+  padding: 13px 16px;
+  border: 2px solid #d9d3c7;
+  border-radius: 12px;
   background: #fffdf5;
-  color: #222;
-  font-size: 1rem;
+  color: #2f2f2f;
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.search input:focus {
-  outline: 3px solid rgba(64, 224, 208, 0.25);
+.search__controls input::placeholder {
+  color: #999;
 }
 
-.search button {
-  padding: 0.85rem 1.5rem;
-  border: none;
-  border-radius: 8px;
-  background: #ff6f61;
-  color: white;
+.search__controls input:focus {
+  border-color: #19a7a0;
+  box-shadow: 0 0 0 3px rgba(25, 167, 160, 0.15);
+}
+
+.search__controls button {
+  flex-shrink: 0;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 12px;
+  background: #19a7a0;
+  color: #ffffff;
+  font: inherit;
   font-weight: 700;
   cursor: pointer;
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
-.search button:hover {
-  background: #e85d50;
-  transform: translateY(-2px);
+.search__controls button:hover {
+  background: #148b85;
+  transform: translateY(-1px);
 }
 
-.search button:active {
+.search__controls button:active {
   transform: translateY(0);
 }
 
-@media (max-width: 600px) {
-  .search {
+@media (max-width: 640px) {
+  .search__controls {
     flex-direction: column;
   }
 
-  .search button {
+  .search__controls button {
     width: 100%;
   }
+}
+
+.search__clear {
+  flex-shrink: 0;
+  padding: 13px 18px;
+  border: 2px solid #d9d3c7;
+  border-radius: 12px;
+  background: #fffdf5;
+  color: #555;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.search__clear:hover {
+  background: #f7c4b5;
+  border-color: #f7c4b5;
+  color: #703b30;
 }

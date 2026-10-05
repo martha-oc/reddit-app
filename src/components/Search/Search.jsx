@@ -16,17 +16,37 @@ function Search({ onSearch }) {
     onSearch(searchTerm);
   };
 
+  const handleClear = () => {
+    setSearchTerm("");
+    onSearch("");
+  };
+
   return (
     <form className="search" onSubmit={handleSubmit}>
-      <input
-        type="search"
-        placeholder="Search posts..."
-        value={searchTerm}
-        onChange={handleChange}
-        aria-label="Search posts"
-      />
+      <label className="search__label" htmlFor="reddit-search">
+        Search Reddit
+      </label>
 
-      <button type="submit">Search</button>
+      <div className="search__controls">
+        <input
+          id="reddit-search"
+          type="search"
+          placeholder="Search posts..."
+          value={searchTerm}
+          onChange={handleChange}
+          aria-label="Search posts"
+        />
+
+        {searchTerm && (
+          <button type="button" className="search__clear" onClick={handleClear}>
+            Clear
+          </button>
+        )}
+
+        <button type="submit" className="search__submit">
+          Search
+        </button>
+      </div>
     </form>
   );
 }
