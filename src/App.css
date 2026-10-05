@@ -2,19 +2,18 @@
   min-height: 100vh;
 }
 
-.header {
-  padding: 1rem 2rem;
-  background-color: #ff4500;
-  color: white;
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
 .main {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.content {
+  flex: 1;
+}
+
+.content h2 {
+  margin-top: 0;
 }

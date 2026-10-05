@@ -1,4 +1,5 @@
 import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
 import "./App.css";
 
 function App() {
@@ -7,9 +8,12 @@ function App() {
       <Header />
 
       <main className="main">
-        <h2>Popular Posts</h2>
+        <Sidebar />
 
-        <p>Our Reddit posts will appear here.</p>
+        <section className="content">
+          <h2>Popular Posts</h2>
+          <p>Our Reddit posts will appear here.</p>
+        </section>
       </main>
     </div>
   );
