@@ -1,6 +1,8 @@
+import { useState } from "react";
 import "./PostDetails.css";
 
 function PostDetails({ post, onBack }) {
+    const [copied, setCopied] = useState(false);
   const comments = [
     {
       id: 1,
@@ -41,6 +43,21 @@ function PostDetails({ post, onBack }) {
         <div className="post-details__stats">
           <span>▲ {post.score} votes</span>
           <span>💬 {post.num_comments} comments</span>
+
+          <button
+            type="button"
+            className="post-details__share"
+            onClick={async () => {
+              await navigator.clipboard.writeText(post.url);
+              setCopied(true);
+
+              setTimeout(() => {
+                setCopied(false);
+              }, 2000);
+            }}
+          >
+            {copied ? "Copied!" : "Share"}
+          </button>
         </div>
 
         <section className="post-details__comments">

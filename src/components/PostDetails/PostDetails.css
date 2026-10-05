@@ -117,3 +117,20 @@
   color: #555;
   line-height: 1.5;
 }
+
+.post-details__share {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #19a7a0;
+  color: #ffffff;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.post-details__share:hover {
+  background: #148b85;
+}
