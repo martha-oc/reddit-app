@@ -10,17 +10,17 @@ function Sidebar({ selectedCategory, onCategoryChange }) {
       <nav aria-label="Post categories">
         <ul className="sidebar__list">
           {categories.map((category) => {
-            const isActive = category === selectedCategory;
+            const isSelected = selectedCategory === category;
 
             return (
               <li key={category}>
                 <button
                   type="button"
                   className={`sidebar__item ${
-                    isActive ? "sidebar__item--active" : ""
+                    isSelected ? "sidebar__item--active" : ""
                   }`}
                   onClick={() => onCategoryChange(category)}
-                  aria-current={isActive ? "page" : undefined}
+                  aria-current={isSelected ? "page" : undefined}
                 >
                   {category}
                 </button>
