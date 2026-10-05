@@ -162,3 +162,156 @@
 .content__empty-button:hover {
   background: #148b85;
 }
+
+.post-skeleton {
+  display: flex;
+  overflow: hidden;
+  min-height: 180px;
+  border: 1px solid #e8e2d6;
+  border-radius: 18px;
+  background: #fffdf5;
+}
+
+.post-skeleton__image {
+  width: 180px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    90deg,
+    #e9f5f3 25%,
+    #dcefed 50%,
+    #e9f5f3 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.4s infinite;
+}
+
+.post-skeleton__content {
+  flex: 1;
+  padding: 24px;
+}
+
+.post-skeleton__line {
+  width: 70%;
+  height: 14px;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: #e8e2d6;
+  animation: skeleton-loading 1.4s infinite;
+}
+
+.post-skeleton__line--title {
+  width: 85%;
+  height: 22px;
+}
+
+.post-skeleton__line--short {
+  width: 45%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .post-skeleton {
+    flex-direction: column;
+  }
+
+  .post-skeleton__image {
+    width: 100%;
+    height: 140px;
+  }
+}
+
+.content__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  padding: 32px;
+  border: 1px solid #f0c9c0;
+  border-radius: 18px;
+  background: #fff8f6;
+  text-align: center;
+}
+
+.content__error-icon {
+  margin-bottom: 12px;
+  font-size: 2rem;
+}
+
+.content__error h3 {
+  margin: 0 0 8px;
+  color: #703b30;
+}
+
+.content__error p {
+  margin: 0;
+  color: #777;
+}
+
+.content__error-button {
+  margin-top: 18px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #703b30;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.content__error-button:hover {
+  background: #5a3028;
+}
+
+.content__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.content__refresh {
+  flex-shrink: 0;
+  padding: 9px 14px;
+  border: 1px solid #19a7a0;
+  border-radius: 10px;
+  background: transparent;
+  color: #148b85;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.content__refresh:hover:not(:disabled) {
+  background: #19a7a0;
+  color: #ffffff;
+}
+
+.content__refresh:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  .content__heading {
+    align-items: flex-start;
+  }
+
+  .content__refresh {
+    padding: 8px 10px;
+  }
+}

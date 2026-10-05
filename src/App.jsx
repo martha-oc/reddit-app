@@ -28,7 +28,7 @@ function App() {
 
   const dispatch = useDispatch();
 
-  const { posts, status, error } = useSelector((state) => state.posts);
+  const { posts, status } = useSelector((state) => state.posts);
 
   const filteredPosts = posts.filter((post) => {
     const search = searchTerm.toLowerCase().trim();
@@ -70,28 +70,67 @@ function App() {
 
             <section className="content">
               <div className="content__heading">
-                <h2>{selectedCategory} Posts</h2>
+                <div>
+                  <h2>{selectedCategory} Posts</h2>
 
-                {status === "succeeded" && (
-                  <span className="content__count">
-                    {filteredPosts.length}{" "}
-                    {filteredPosts.length === 1 ? "post" : "posts"}
-                  </span>
-                )}
+                  {status === "succeeded" && (
+                    <span className="content__count">
+                      {filteredPosts.length}{" "}
+                      {filteredPosts.length === 1 ? "post" : "posts"}
+                    </span>
+                  )}
+                </div>
+
+                <button
+                  type="button"
+                  className="content__refresh"
+                  onClick={() =>
+                    dispatch(fetchRedditPosts(selectedCategory.toLowerCase()))
+                  }
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? "Refreshing..." : "↻ Refresh"}
+                </button>
               </div>
 
               {status === "loading" && (
-                <div className="content__loading" aria-live="polite">
-                  <span
-                    className="content__loading-spinner"
-                    aria-hidden="true"
-                  />
-                  <p>Loading {selectedCategory.toLowerCase()} posts...</p>
+                <div className="post-list" aria-live="polite" aria-busy="true">
+                  {[1, 2, 3].map((item) => (
+                    <article className="post-skeleton" key={item}>
+                      <div className="post-skeleton__image" />
+
+                      <div className="post-skeleton__content">
+                        <div className="post-skeleton__line post-skeleton__line--title" />
+                        <div className="post-skeleton__line" />
+                        <div className="post-skeleton__line post-skeleton__line--short" />
+                      </div>
+                    </article>
+                  ))}
                 </div>
               )}
 
               {status === "failed" && (
-                <p role="alert">Something went wrong: {error}</p>
+                <div className="content__error" role="alert">
+                  <div className="content__error-icon" aria-hidden="true">
+                    ⚠️
+                  </div>
+
+                  <h3>Something went wrong</h3>
+
+                  <p>
+                    We couldn't load the {selectedCategory.toLowerCase()} posts.
+                  </p>
+
+                  <button
+                    type="button"
+                    className="content__error-button"
+                    onClick={() =>
+                      dispatch(fetchRedditPosts(selectedCategory.toLowerCase()))
+                    }
+                  >
+                    Try Again
+                  </button>
+                </div>
               )}
 
               {status === "succeeded" && (
