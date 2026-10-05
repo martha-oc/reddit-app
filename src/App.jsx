@@ -80,7 +80,15 @@ function App() {
                 )}
               </div>
 
-              {status === "loading" && <p>Loading Reddit posts...</p>}
+              {status === "loading" && (
+                <div className="content__loading" aria-live="polite">
+                  <span
+                    className="content__loading-spinner"
+                    aria-hidden="true"
+                  />
+                  <p>Loading {selectedCategory.toLowerCase()} posts...</p>
+                </div>
+              )}
 
               {status === "failed" && (
                 <p role="alert">Something went wrong: {error}</p>
@@ -102,7 +110,31 @@ function App() {
                       />
                     ))
                   ) : (
-                    <p>No posts found matching "{searchTerm}".</p>
+                    <div className="content__empty">
+                      <div className="content__empty-icon" aria-hidden="true">
+                        🔎
+                      </div>
+
+                      <h3>No posts found</h3>
+
+                      <p>
+                        No posts match{" "}
+                        {searchTerm
+                          ? `"${searchTerm}"`
+                          : `the ${selectedCategory.toLowerCase()} category`}
+                        .
+                      </p>
+
+                      {searchTerm && (
+                        <button
+                          type="button"
+                          className="content__empty-button"
+                          onClick={() => setSearchTerm("")}
+                        >
+                          Clear search
+                        </button>
+                      )}
+                    </div>
                   )}
                 </div>
               )}
