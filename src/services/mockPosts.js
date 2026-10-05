@@ -119,6 +119,66 @@ const mockPosts = [
     thumbnail: null,
     url: "https://example.com",
   },
+  {
+    id: "post-6",
+    title: "What game has kept you playing the longest?",
+    subreddit: "gaming",
+    author: "gameplayer",
+    score: 734,
+    num_comments: 118,
+    selftext:
+      "What game have you spent the most time playing, and what keeps bringing you back to it?",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-7",
+    title: "What small programming habit improved your workflow?",
+    subreddit: "programming",
+    author: "codebuilder",
+    score: 589,
+    num_comments: 76,
+    selftext:
+      "Share a small programming habit, shortcut or workflow improvement that made a noticeable difference.",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-8",
+    title: "Show us your favourite web development tools",
+    subreddit: "webdev",
+    author: "webbuilder",
+    score: 463,
+    num_comments: 54,
+    selftext:
+      "What tools, extensions or services do you use most often when building websites?",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-9",
+    title: "What technology are you most excited about?",
+    subreddit: "technology",
+    author: "futurethinker",
+    score: 921,
+    num_comments: 143,
+    selftext:
+      "There are always new technologies appearing. Which one do you think will have the biggest impact?",
+    thumbnail: null,
+    url: "https://example.com",
+  },
+  {
+    id: "post-10",
+    title: "How do you stay productive while working from home?",
+    subreddit: "productivity",
+    author: "focusedworker",
+    score: 347,
+    num_comments: 39,
+    selftext:
+      "Share your routines, tools and habits for staying focused and productive while working remotely.",
+    thumbnail: null,
+    url: "https://example.com",
+  },
 ];
 
 export default mockPosts;
