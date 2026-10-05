@@ -1,4 +1,13 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { fetchPosts } from "../services/redditApi";
+
+export const fetchRedditPosts = createAsyncThunk(
+  "posts/fetchRedditPosts",
+  async (category = "popular") => {
+    const posts = await fetchPosts(category);
+    return posts;
+  },
+);
 
 const initialState = {
   posts: [],
@@ -9,21 +18,22 @@ const initialState = {
 const postsSlice = createSlice({
   name: "posts",
   initialState,
-  reducers: {
-    setPosts(state, action) {
-      state.posts = action.payload;
-    },
-
-    setStatus(state, action) {
-      state.status = action.payload;
-    },
-
-    setError(state, action) {
-      state.error = action.payload;
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchRedditPosts.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(fetchRedditPosts.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.posts = action.payload;
+      })
+      .addCase(fetchRedditPosts.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message;
+      });
   },
 });
-
-export const { setPosts, setStatus, setError } = postsSlice.actions;
 
 export default postsSlice.reducer;

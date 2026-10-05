@@ -1,13 +1,13 @@
-const REDDIT_API_URL = "https://www.reddit.com";
+import mockPosts from "./mockPosts";
 
 export async function fetchPosts(category = "popular") {
-  const response = await fetch(`${REDDIT_API_URL}/r/${category}.json?limit=20`);
+  await new Promise((resolve) => setTimeout(resolve, 500));
 
-  if (!response.ok) {
-    throw new Error("Unable to fetch Reddit posts");
+  if (category === "popular") {
+    return mockPosts;
   }
 
-  const data = await response.json();
-
-  return data.data.children.map((item) => item.data);
+  return mockPosts.filter(
+    (post) => post.subreddit.toLowerCase() === category.toLowerCase(),
+  );
 }
