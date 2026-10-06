@@ -1,8 +1,8 @@
 Reddit Explorer
 
-A Reddit-style web application built with React, Redux Toolkit and Vite.
+A responsive Reddit-style web application built with React, Redux Toolkit and Vite.
 
-The project provides a responsive interface for browsing posts, searching content, switching between categories, viewing post details, voting, viewing comments, and copying a post link.
+The application provides a clean interface for browsing posts, searching content, switching between categories, viewing post details, interacting with votes, viewing comments, and copying post links.
 
 Features
 
@@ -36,11 +36,17 @@ Error state with retry functionality
 
 Refresh posts button
 
-Responsive desktop and mobile layouts
+Responsive desktop, tablet and mobile layouts
 
 Redux Toolkit state management
 
+Accessible interactive controls
+
 ESLint configuration
+
+Automated component testing
+
+End-to-end testing with Playwright
 
 Technology
 
@@ -48,13 +54,47 @@ React
 
 Redux Toolkit
 
+React Redux
+
 JavaScript
 
 Vite
 
 CSS
 
+Jest
+
+React Testing Library
+
+Playwright
+
 ESLint
+
+Data
+
+The application uses locally mocked Reddit-style data rather than the Reddit API.
+
+The mock posts are stored in:
+
+src/services/mockPosts.js
+
+
+The data-access logic is kept separate in:
+
+src/services/redditApi.js
+
+
+This allows the application to demonstrate the required frontend functionality without relying on external API credentials or live Reddit data.
+
+Design
+
+The application was designed in Figma before implementation, with separate desktop and mobile layouts.
+
+The final interface is responsive and adapts across desktop, tablet and mobile viewport sizes.
+
+Desktop
+
+Mobile
 
 Running the project
 
@@ -67,32 +107,47 @@ Start the development server:
 
 npm run dev
 
+Testing
 
-Run the linter:
+Run the Jest component tests:
+
+npm test
+
+
+The current component test suite covers the PostCard, PostDetails and Search components.
+
+Run the Playwright end-to-end test:
+
+npm run test:e2e
+
+
+The E2E test verifies the main application flow, including loading the application and interacting with posts.
+
+Code quality
+
+Run ESLint:
 
 npm run lint
 
-Reddit API note
 
-The original implementation was intended to retrieve live Reddit posts through the Reddit API.
+Create a production build:
 
-During development, Reddit's developer account/application registration process prevented the required automated account credentials from being created successfully. Requests through the Reddit API therefore returned HTTP 403 responses.
-
-Rather than leaving the project non-functional, the application was adapted to use a local mock data service.
-
-The mock data is stored in:
-
-src/services/mockPosts.js
+npm run build
 
 
-and is accessed through:
+The project has been checked with ESLint and a production Vite build.
 
-src/services/redditApi.js
+Lighthouse
 
+The application was tested with Google Lighthouse on the production build.
 
-This allows the application to demonstrate the required frontend functionality without depending on unavailable Reddit API credentials.
+Category	Score
+Performance	99
+Accessibility	95
+Best Practices	100
+SEO	91
 
-The application structure still keeps the data-access logic separated from the UI, so a real Reddit API implementation could be connected later.
+The SEO audit initially identified a missing meta description, which was subsequently added to the application.
 
 Project structure
 src/
@@ -103,47 +158,42 @@ src/
 │   ├── PostDetails/
 │   ├── Search/
 │   └── Sidebar/
-│
 ├── redux/
 │   └── postsSlice.js
-│
 ├── services/
 │   ├── mockPosts.js
 │   └── redditApi.js
-│
 ├── App.jsx
 ├── App.css
 └── main.jsx
 
+e2e/
+└── app.spec.js
+
 Development notes
 
-The project was developed incrementally, with functionality tested during each stage.
+The project was developed incrementally, with functionality tested throughout development.
 
-ESLint is used to catch common JavaScript and React issues:
+Component tests use Jest and React Testing Library, while Playwright provides end-to-end browser testing.
 
-npm run lint
-
-
-The application currently uses mock Reddit data because live Reddit API access could not be completed due to the developer account/application authentication restriction described above.
+The final application was also checked with ESLint and a production Vite build.
 
 Future improvements
 
-If Reddit API access becomes available, the mock service can be replaced with live Reddit data while keeping the existing UI and Redux structure.
-
 Potential future improvements include:
 
-Live Reddit authentication
-
-Real Reddit posts and comments
-
-Persistent voting
+Real Reddit API integration if permitted by the project requirements
 
 Real post images
 
-Pagination/infinite scrolling
+Pagination or infinite scrolling
 
 More subreddit categories
 
-User authentication
+Persistent voting
 
 Persistent saved posts
+
+User authentication
+
+Expanded comment functionality
