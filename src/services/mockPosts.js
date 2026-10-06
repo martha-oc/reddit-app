@@ -120,7 +120,7 @@ const mockPosts = [
     url: "https://example.com",
   },
   {
-    id: "post-6",
+    id: "post-11",
     title: "What game has kept you playing the longest?",
     subreddit: "gaming",
     author: "gameplayer",
@@ -132,7 +132,7 @@ const mockPosts = [
     url: "https://example.com",
   },
   {
-    id: "post-7",
+    id: "post-12",
     title: "What small programming habit improved your workflow?",
     subreddit: "programming",
     author: "codebuilder",
@@ -144,7 +144,7 @@ const mockPosts = [
     url: "https://example.com",
   },
   {
-    id: "post-8",
+    id: "post-13",
     title: "Show us your favourite web development tools",
     subreddit: "webdev",
     author: "webbuilder",
@@ -156,7 +156,7 @@ const mockPosts = [
     url: "https://example.com",
   },
   {
-    id: "post-9",
+    id: "post-14",
     title: "What technology are you most excited about?",
     subreddit: "technology",
     author: "futurethinker",
@@ -168,7 +168,7 @@ const mockPosts = [
     url: "https://example.com",
   },
   {
-    id: "post-10",
+    id: "post-15",
     title: "How do you stay productive while working from home?",
     subreddit: "productivity",
     author: "focusedworker",

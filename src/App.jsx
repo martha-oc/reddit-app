@@ -91,7 +91,7 @@ function App() {
                   }
                   disabled={status === "loading"}
                 >
-                  {status === "loading" ? "Refreshing..." : "↻ Refresh"}
+                  {status === "loading" ? "Refreshing..." : "Refresh"}
                 </button>
               </div>
 
@@ -153,7 +153,7 @@ function App() {
                   ) : (
                     <div className="content__empty">
                       <div className="content__empty-icon" aria-hidden="true">
-                        🔎
+                        <span>⌕</span>
                       </div>
 
                       <h3>No posts found</h3>

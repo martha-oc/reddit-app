@@ -41,7 +41,6 @@
   gap: 18px;
 }
 
-/* Tablet */
 @media (max-width: 800px) {
   .main {
     grid-template-columns: 180px minmax(0, 1fr);
@@ -49,7 +48,7 @@
   }
 }
 
-/* Mobile */
+
 @media (max-width: 640px) {
   .main {
     display: flex;
